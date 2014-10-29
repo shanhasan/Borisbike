@@ -24,8 +24,13 @@ describe Bike do
    end
 
   it "is returned fine" do
-    bike.returned!
+    bike.Fine
     expect(bike.avaliable).to be true
+  end
+
+  it "is returned broken" do
+    bike.Broken
+    expect(bike.avaliable).to be false
   end
 
 end

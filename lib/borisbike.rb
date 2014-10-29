@@ -24,8 +24,12 @@ class Bike
     @avaliable = false
   end
 
-  def returned!
+  def Fine
     @avaliable = true
+  end
+
+  def Broken
+    @avaliable = false
   end
 
 end
