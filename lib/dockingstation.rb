@@ -12,8 +12,13 @@ class DockingStation
   end
 
   def dock(bike)
+    raise "Station is full" if full?
     @bikes << bike
   end
+
+  # def RunTimeError
+  #   raise "Station is full" if full?
+  # end
 
   def release(bike)
     @bikes.delete(bike)
