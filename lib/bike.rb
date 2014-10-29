@@ -1,7 +1,8 @@
 class Bike
+
   def initialize
-    @broken = false
-    @avaliable = true
+    @fix
+    # @avaliable = true
   end
 
   def broken?
@@ -16,20 +17,20 @@ class Bike
     @broken = false
   end
 
-  def avaliable
-    @avaliable
-  end
+  # def avaliable
+  #   @avaliable
+  # end
 
-  def rented!
-    @avaliable = false
-  end
+  # def rented!
+  #   @avaliable = false
+  # end
 
-  def Fine
-    @avaliable = true
-  end
+  # def Fine
+  #   @avaliable = true
+  # end
 
-  def Broken
-    @avaliable = false
-  end
+  # def Broken
+  #   @avaliable = false
+  # end
 
 end
