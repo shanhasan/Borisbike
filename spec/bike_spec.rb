@@ -1,4 +1,4 @@
-require_relative '../lib/borisbike'
+require_relative '../lib/bike'
 
 describe Bike do
 
