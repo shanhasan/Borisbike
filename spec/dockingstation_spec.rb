@@ -33,7 +33,11 @@ describe DockingStation do
   end
 
   it "should provide the list of the avaliable bikes" do
-
+    working_bike, broken_bike = Bike.new, Bike.new
+    broken_bike.break!
+    station.dock(working_bike)
+    station.dock(broken_bike)
+    expect(station.avaliable_bikes).to eq([working_bike])
   end
 
 end
