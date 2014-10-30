@@ -31,7 +31,7 @@ describe BikeContainer do
   end
 
   # it "should provide the list of the avaliable bikes" do
-  #   working_bike, broken_bike = bike, 
+  #   working_bike, broken_bike = bike, bike
   #   # broken_bike.break!
   #   holder.dock(working_bike)
   #   holder.dock(broken_bike)
