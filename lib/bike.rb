@@ -1,5 +1,7 @@
 class Bike
 
+  include BikeContainer
+  
   def initialize
     @fix
     # @avaliable = true
