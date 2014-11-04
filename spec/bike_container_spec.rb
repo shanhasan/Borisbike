@@ -4,8 +4,10 @@ class ContainerHolder; include BikeContainer; end
 
 describe BikeContainer do
   
-  let(:bike) {Bike.new}
+  # let(:bike) {Bike.new}
   let(:holder) { ContainerHolder.new}
+  let(:broken_bike) {double :bike, broken?: true}
+  let(:bike) {double :bike, broken?: false}
 
   it "should accept a bike" do
     expect(holder.bike_count).to eq(0)
@@ -30,13 +32,17 @@ describe BikeContainer do
     expect(lambda { holder.dock(bike) }).to raise_error(RuntimeError)
   end
 
-  # it "should provide the list of the avaliable bikes" do
-  #   working_bike, broken_bike = bike, bike
-  #   # broken_bike.break!
-  #   holder.dock(working_bike)
-  #   holder.dock(broken_bike)
-  #   expect(holder.avaliable_bikes).to eq([working_bike])
-  # end
+  it "should provide the list of the avaliable bikes" do
+    # broken_bike.break!
+    holder.dock(bike)
+    holder.dock(broken_bike)
+    expect(holder.avaliable_bikes).to eq([bike])
+  end
+
+  it "will not release a bike when empty" do
+    10.times {holder.release(bike)}
+    expect(lambda { holder.release(bike) }).to raise_error(RuntimeError)
+  end
 
 
 end
