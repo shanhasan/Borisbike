@@ -3,8 +3,8 @@ require_relative '../lib/garage'
 describe Garage do
   
   let(:garage) {Garage.new}
-  let(:broken_bike) {double :bike, broken?: true}
-  let(:bike) {double :bike, broken?: false, fix!: true}
+  let(:broken_bike) {double :bike, broken?: true, fix!: false}
+  let(:bike) {double :bike, broken?: false}
 
   it "will accept broken bikes from van" do
     expect(garage.bike_count).to eq(0)
@@ -13,7 +13,7 @@ describe Garage do
   end
 
   it "will fix the broken bike" do
-    bike.fix!
+    broken_bike.fix!
     expect(bike).to_not be_broken
   end
 
@@ -21,9 +21,7 @@ describe Garage do
     # garage.dock(broken_bike)
     # bike.fix!
     garage.release(bike)
-    expect(garage.bike_count).to eq(0)
+    expect(garage.bike_count).to raise_error(RuntimeError)
   end
-
-
 
 end
